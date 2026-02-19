@@ -8,11 +8,11 @@
 import Foundation
 
 struct Planet {
-    var planet: String
+    var name: String
     var distance: String
     
     init(_ planet: String, _ distance: String) {
-        self.planet = planet
-        self.distance = distance + " miles from the sun"
+        self.name = planet
+        self.distance = distance
     }
 }

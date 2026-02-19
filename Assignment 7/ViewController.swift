@@ -29,10 +29,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        content.text = planets[indexPath.row].planet
-        content.secondaryText = planets[indexPath.row].distance
+        content.text = planets[indexPath.row].name
+        content.secondaryText = planets[indexPath.row].distance + " miles from the sun"
         cell.contentConfiguration = content
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_,_,_) in
+            print("Deleted" + self.planets[indexPath.row].name)
+            self.planets.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+        config.performsFirstActionWithFullSwipe = false
+        return config
     }
     
     override func viewDidLoad() {
