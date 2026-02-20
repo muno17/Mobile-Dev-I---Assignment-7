@@ -10,16 +10,12 @@ import UIKit
 class PlanetInfoView: UIViewController {
     var planet: Planet?
 
-    @IBOutlet weak var detailsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         if let p = planet {
-            detailsLabel.text = "\(p.name)\n"
-                                + "\(p.distance) miles away from The Sun\n"
-                                + "Avg Temp: "
         }
     }
     
