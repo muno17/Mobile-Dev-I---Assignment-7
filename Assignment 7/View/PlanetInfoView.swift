@@ -17,7 +17,9 @@ class PlanetInfoView: UIViewController {
 
         // Do any additional setup after loading the view.
         if let p = planet {
-            detailsLabel.text = "\(p.name) is \(p.distance) miles away."
+            detailsLabel.text = "\(p.name)\n"
+                                + "\(p.distance) miles away from The Sun\n"
+                                + "Avg Temp: "
         }
     }
     
