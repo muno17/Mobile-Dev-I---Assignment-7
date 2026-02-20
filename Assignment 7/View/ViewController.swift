@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var planetTable: UITableView!
     
     var planets = [
         Planet("Mercury", "~36 million"),
@@ -47,11 +48,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return config
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 1. Identify which item was clicked
+            let selectedPlanet = planets[indexPath.row]
+            
+            // 2. Trigger the segue you created in Storyboard
+            performSegue(withIdentifier: "showDetail", sender: selectedPlanet)
+            
+            // 3. Optional: Deselect the row so it doesn't stay gray
+            tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        planetTable.delegate = self
+        planetTable.dataSource = self
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail",
+               let navigation = segue.destination as? PlanetInfoView {
+                
+                // 2. Ask the table which row was clicked
+                if let indexPath = planetTable.indexPathForSelectedRow {
+                    // 3. Get the planet from your array using that index
+                    let selectedPlanet = planets[indexPath.row]
+                    
+                    // 4. Pass it over
+                    navigation.planet = selectedPlanet
+                }
+            }
+    }
 
 }
 

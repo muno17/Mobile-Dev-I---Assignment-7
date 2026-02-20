@@ -60,10 +60,54 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="atj-8Y-5Mx" secondAttribute="bottom" id="glr-qo-RlD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="planetTable" destination="atj-8Y-5Mx" id="epB-cp-WDj"/>
+                        <segue destination="4PJ-S6-B62" kind="presentation" identifier="showDetail" id="7Ib-IQ-bXu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141" y="131"/>
+        </scene>
+        <!--Planet Info View-->
+        <scene sceneID="biG-9B-rN2">
+            <objects>
+                <viewController id="4PJ-S6-B62" customClass="PlanetInfoView" customModule="Assignment_7" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JhT-z5-dSz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FW-MP-u09">
+                                <rect key="frame" x="170.66666666666666" y="386" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2w5-Fg-LcQ">
+                                <rect key="frame" x="135.33333333333334" y="728" width="122.33333333333334" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back to Main"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="4PJ-S6-B62" eventType="touchUpInside" id="4Ni-CU-Nyo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PfO-vg-QAF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PfO-vg-QAF" firstAttribute="bottom" secondItem="2w5-Fg-LcQ" secondAttribute="bottom" constant="30" id="V6d-bG-T12"/>
+                            <constraint firstItem="9FW-MP-u09" firstAttribute="centerY" secondItem="JhT-z5-dSz" secondAttribute="centerY" id="fPw-wP-ibe"/>
+                            <constraint firstItem="2w5-Fg-LcQ" firstAttribute="centerX" secondItem="JhT-z5-dSz" secondAttribute="centerX" id="pf3-wb-yeq"/>
+                            <constraint firstItem="9FW-MP-u09" firstAttribute="centerX" secondItem="JhT-z5-dSz" secondAttribute="centerX" id="two-PR-vLM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailsLabel" destination="9FW-MP-u09" id="OYY-qf-kEY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OtI-up-5om" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976" y="131"/>
         </scene>
     </scenes>
     <resources>
