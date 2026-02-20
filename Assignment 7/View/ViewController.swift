@@ -21,30 +21,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.text = planetDetails.planets[indexPath.row].name
+        content.secondaryText = planetDetails.planets[indexPath.row].type
+        content.textProperties.color = .white
+        content.secondaryTextProperties.color = .lightGray
         cell.contentConfiguration = content
         return cell
     }
     
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_,_,_) in
-            print("Deleted" + self.planetDetails.planets[indexPath.row].name)
-            self.planetDetails.planets.remove(at: indexPath.row)
-            tableView.reloadData()
-        }
-        
-        let config = UISwipeActionsConfiguration(actions: [deleteAction])
-        config.performsFirstActionWithFullSwipe = false
-        return config
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 1. Identify which item was clicked
             let selectedPlanet = planetDetails.planets[indexPath.row]
-            
-            // 2. Trigger the segue you created in Storyboard
             performSegue(withIdentifier: "showDetail", sender: selectedPlanet)
-            
-            // 3. Optional: Deselect the row so it doesn't stay gray
             tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -60,12 +46,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "showDetail",
                let navigation = segue.destination as? PlanetInfoView {
                 
-                // 2. Ask the table which row was clicked
+                // get the clicked row
                 if let indexPath = planetTable.indexPathForSelectedRow {
-                    // 3. Get the planet from your array using that index
+                    // pass the correct planet via segue
                     let selectedPlanet = planetDetails.planets[indexPath.row]
-                    
-                    // 4. Pass it over
                     navigation.planet = selectedPlanet
                 }
             }

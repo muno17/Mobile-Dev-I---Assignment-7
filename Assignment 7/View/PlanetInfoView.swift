@@ -8,6 +8,13 @@
 import UIKit
 
 class PlanetInfoView: UIViewController {
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var massLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var gravityLabel: UILabel!
+    @IBOutlet weak var orbitLabel: UILabel!
+    @IBOutlet weak var funFactLabel: UILabel!
     var planet: Planet?
 
     
@@ -15,7 +22,23 @@ class PlanetInfoView: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateLabels()
+    }
+    
+    func updateLabels() {
         if let p = planet {
+            nameLabel.text = p.name
+            distanceLabel.text = p.distance + " mi"
+            if p.type == "Planet" {
+                massLabel.text = String(format: "%.3f",p.mass)
+            } else {
+                massLabel.text = String(format: "%.6f",p.mass)
+            }
+            tempLabel.text = String(format: "%i°",p.temperature)
+            gravityLabel.text = String(format: "%.2f m/s²",p.gravity)
+            orbitLabel.text = p.orbit
+            funFactLabel.text = p.fact
+            
         }
     }
     

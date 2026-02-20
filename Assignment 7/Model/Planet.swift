@@ -15,8 +15,9 @@ struct Planet {
     var orbit: String
     var gravity: Float
     var fact: String
+    var type: String
     
-    init(_ planet: String, _ distance: String, _ mass: Float, _ temperature: Int, _ orbit: String, _ gravity: Float, _ fact: String) {
+    init(_ planet: String, _ distance: String, _ mass: Float, _ temperature: Int, _ orbit: String, _ gravity: Float, _ fact: String, _ type: String) {
         self.name = planet
         self.distance = distance
         self.mass = mass
@@ -24,5 +25,6 @@ struct Planet {
         self.orbit = orbit
         self.gravity = gravity
         self.fact = fact
+        self.type = type
     }
 }

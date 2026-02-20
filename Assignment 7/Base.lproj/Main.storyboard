@@ -109,14 +109,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fV6-8v-6Ne">
                                         <rect key="frame" x="0.0" y="39" width="353" height="24"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mass:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq7-JZ-jxa">
-                                                <rect key="frame" x="0.0" y="0.0" width="56" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mass (Relative):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq7-JZ-jxa">
+                                                <rect key="frame" x="0.0" y="0.0" width="151" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="mass" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BN-CO-2ta">
-                                                <rect key="frame" x="64" y="0.0" width="289" height="24"/>
+                                                <rect key="frame" x="159" y="0.0" width="194" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -177,7 +177,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4BA-Bc-n44">
                                         <rect key="frame" x="0.0" y="195" width="353" height="26.333333333333343"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun Fact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPN-jb-OdL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun Fact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPN-jb-OdL">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -212,6 +212,15 @@
                             <constraint firstItem="Rge-zH-mFd" firstAttribute="top" secondItem="PfO-vg-QAF" secondAttribute="top" constant="30" id="u9v-ep-my8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanceLabel" destination="07o-u4-BY4" id="H2q-CN-E51"/>
+                        <outlet property="funFactLabel" destination="PPN-jb-OdL" id="L6J-Pc-KxZ"/>
+                        <outlet property="gravityLabel" destination="O3M-bD-5Qf" id="muz-6G-9lZ"/>
+                        <outlet property="massLabel" destination="2BN-CO-2ta" id="8fW-3P-g2v"/>
+                        <outlet property="nameLabel" destination="Rge-zH-mFd" id="zAm-dI-QiW"/>
+                        <outlet property="orbitLabel" destination="QTZ-qZ-OUt" id="WU7-hA-m5b"/>
+                        <outlet property="tempLabel" destination="pUv-Xc-F41" id="ZAC-xJ-msS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OtI-up-5om" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
